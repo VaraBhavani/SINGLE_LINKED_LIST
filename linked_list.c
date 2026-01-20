@@ -1,4 +1,4 @@
-// Program for doing CRUD operations using linked list and to reduce disk I/O
+// Program for doing CRUD operations using singly linked list and to reduce disk I/O
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -20,7 +20,7 @@ struct item
 void load_from_file();
 void save_to_file();
 
-void create_item();
+void add_item();
 void display_items();
 void update_item(char *);
 void delete_item(char *);
@@ -38,13 +38,13 @@ int main()
 	char search_item_id[SIZE];
 	while (1)
 	{
-		printf("1. Create item\n2. Display items\n3. Update item\n4. Delete item\n5. Exit\n");
+		printf("1. Add item\n2. Display items\n3. Update item\n4. Delete item\n5. Exit\n");
 		printf("Enter your choice: ");
 		scanf("%d", &choice);
 		switch(choice)
 		{
 		case 1:
-			create_item();
+			add_item();
 			break;
 
 		case 2:
@@ -94,7 +94,7 @@ void load_from_file()
     fclose(fp_items);
 }
 
-void create_item()
+void add_item()
 {
 	new_node = (struct item *)malloc(sizeof(struct item));
 
@@ -223,3 +223,4 @@ void save_to_file()
     }
     fclose(fp_items);
 }
+
